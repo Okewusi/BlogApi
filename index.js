@@ -5,7 +5,7 @@ import userRoute from "./src/route/user.route";
 import postRoute from "./src/route/post.route"
 
 const blog = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 
 // connect database , note the dbURL was set in the config.js and .env files
