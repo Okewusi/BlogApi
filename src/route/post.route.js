@@ -1,16 +1,16 @@
 import express from 'express';
 const route = express.Router();
-import {addPost, findPosts, findPost, findAllPosts, deletePost, updatePost,addComment} from '../controller/post.controller';
+import {addPost, findPosts, findPost, findAllPosts, deletePost, updatePostTitle} from '../controller/post.controller';
 import {verifyToken} from '../middleware/auth';
 
 
 route.get('/posts', verifyToken,findPosts);
 route.get('/allposts', verifyToken, findAllPosts);
-route.get('/post',verifyToken, findPost);
-route.delete('/post', verifyToken, deletePost);
+route.get('/post/:id',verifyToken, findPost);
+route.delete('/post/:id', verifyToken, deletePost);
 route.post('/post', verifyToken, addPost);
-route.put('/post',verifyToken,updatePost);
-route.post('/comment/:id', verifyToken, addComment);
+route.put('/post/:id',verifyToken,updatePostTitle);
+// route.post('/comment/:id', verifyToken,addComment);
 
 
 export default route;
