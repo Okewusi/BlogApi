@@ -1,11 +1,12 @@
 import express from 'express';
 const route = express.Router();
-import {addUser, findUser, userlogin} from "../controller/user.controller";
+import {addUser, findUser, userlogin, findAllUsers} from "../controller/user.controller";
 import {verifyToken} from "../middleware/auth";
 
 route.post('/login',userlogin);
 route.post('/register',addUser);
 route.get('/user', findUser);
+route.get('/allusers', findAllUsers)
 
 export default route;
 

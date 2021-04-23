@@ -82,22 +82,22 @@ export const findAllPosts = async(req, res)=>{
 }
 
 
-export const addComment = async(req,res)=>{
-    const user = req.user;
-    const postId = req.params.id;
-    const comment = req.body.comment;
-    const post = await Posts.findOne({_id: postId});
-    if(!post){
-        res.status(400).json({error: "post no found"});
-        return;
-    }
+// export const addComment = async(req,res)=>{
+//     const user = req.user;
+//     const postId = req.params.id;
+//     const comment = req.body.comment;
+//     const post = await Posts.findOne({_id: postId});
+//     if(!post){
+//         res.status(400).json({error: "post no found"});
+//         return;
+//     }
 
-    const newComment = await Posts.comments.push({comment});
-    await newComment.save((err,data)=>{
-        if(err){
-            status.send(400).json({error: "comment not saved"}); 
-            return;
-        }
-        res.status(200).json({data})
-    })
-}
+//     const newComment = await Posts.comments.push({comment});
+//     await newComment.save((err,data)=>{
+//         if(err){
+//             status.send(400).json({error: "comment not saved"}); 
+//             return;
+//         }
+//         res.status(200).json({data})
+//     })
+// }

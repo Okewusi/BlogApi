@@ -65,3 +65,8 @@ export const userlogin = async (req,res)=>{
     res.status(200).json({message: "login succesful", token});
 }
 
+
+export const findAllUsers = async(req, res)=>{
+    const allUsers = await Users.find({});
+    res.status(200).json({Allusers: allUsers});
+}
