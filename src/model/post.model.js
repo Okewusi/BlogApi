@@ -6,7 +6,7 @@ const commentSchema = new Schema({
 const postsSchema = new Schema({
     title: {type:String, required:true},
     post: {type: String, required:true},
-    // comments: [commentSchema],
+    comments: [commentSchema],
     owner: {type: mongoose.Schema.Types.ObjectId, required: true}
 }) 
 
